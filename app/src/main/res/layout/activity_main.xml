@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    tools:context=".activity.MainActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topnav"
+        app:cardBackgroundColor="@android:color/transparent">
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+            <SearchView
+                android:queryHint="Tiêu xà láng ..."
+                android:id="@+id/topSearchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@+id/layouttopnaccart"
+                android:background="@color/white100"
+                android:searchIcon="@drawable/search_24px"></SearchView>
+            <RelativeLayout
+                android:id="@+id/layouttopnacc"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/topnavMess"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/sms" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/unseenMain"
+                    android:visibility="gone"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_alignParentEnd="true"
+                    app:cardBackgroundColor="@color/red">
+                    <TextView
+                        android:id="@+id/textUnseenMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:text="1"/>
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layouttopnaccart"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_toStartOf="@+id/layouttopnacc"
+                android:gravity="center">
+                <ImageView
+
+                    android:id="@+id/topnavCart"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/cart" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/slCartMain"
+                    android:visibility="gone"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    app:cardCornerRadius="18dp"
+                    android:layout_alignParentEnd="true"
+                    app:cardBackgroundColor="@color/red">
+                    <TextView
+                        android:id="@+id/textSLCart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:text="1"/>
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topnav"
+        android:id="@+id/cardrecycler"
+        android:visibility="gone"
+        android:layout_above="@+id/navnav">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topnav"
+            android:layout_above="@+id/navnav"
+            android:id="@+id/recycleViewMainSearch" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navnav"
+        android:layout_marginBottom="0dp"
+        tools:ignore="SpeakableTextPresentCheck"></androidx.viewpager.widget.ViewPager>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navnav"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bottom_nav"
+        app:itemBackground="@color/yellow_pri"
+        app:itemIconTint="@color/custom_color_nav"
+        app:itemTextColor="@color/custom_color_nav"/>
+
+</RelativeLayout>
